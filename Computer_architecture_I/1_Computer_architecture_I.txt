@@ -1,0 +1,192 @@
+Ideas of electronics:
+
+Exercise: Compute the truth table for NOT:
+
+X | NOT X
+--|-------
+0 |   1
+1 |   0
+
+Exercise: Compute the truth table table for AND.
+
+X | Y | X AND Y
+--|---|--------
+0 | 0 |   0
+1 | 0 |   0
+0 | 1 |   0
+1 | 1 |   1
+
+Exercise: Compute the truth table for exclusive-or, defined by the formula:
+
+XOR(X, Y) = (X OR Y) AND NOT (X AND Y)
+
+X | Y | X OR Y | X AND Y | NOT(X AND Y) |(X OR Y) AND NOT (X AND Y)|
+--|---|--------|---------|--------------|--------------------------|
+0 | 0 |   0    |    0    |       1      |           0              |
+1 | 0 |   1    |    0    |       1      |           1              |
+0 | 1 |   1    |    0    |       1      |           1              |
+1 | 1 |   1    |    1    |       0      |           0              |
+
+
+Exercise: Prove De Morgan's theorem, NOT(X OR Y) = NOT(X) AND NOT(Y), by completing the table and checking the last two columns are the same.
+
+X | Y | NOT(X OR Y) | NOT(X) AND NOT(Y)
+--|---|-------------|-------------------
+0 | 0 |      1      |        1
+1 | 0 |      0      |        0
+0 | 1 |      0      |        0
+1 | 1 |      0      |        0
+
+Exercise: using truth tables, check these three equations
+
+X | NOT(X) | NAND(1, X)
+--|--------|-----------
+0 |    1   |   1
+1 |    0   |   0
+0 |    1   |   1
+1 |    0   |   0
+
+X | Y |AND(X,Y)|NAND(X,Y)|NOT(NAND(X,Y))
+--|---|--------|---------|--------------
+0 | 0 |   0    |    1    |      0
+1 | 0 |   0    |    1    |      0
+0 | 1 |   0    |    1    |      0
+1 | 1 |   1    |    0    |      1
+
+X | Y |OR(X,Y) |NOT(X)|NOT(Y)|NAND(NOT(X),NOT(Y))
+--|---|--------|------|------|--------------------
+0 | 0 |   0    |   1  |   1  |         0
+1 | 0 |   1    |   0  |   1  |         1
+0 | 1 |   1    |   1  |   0  |         1
+1 | 1 |   1    |   0  |   0  |         1
+
+Exercise: write similar formulas expressing NOT, AND, and OR in terms of NOR
+
+NOR(X, Y) = NOT(X  OR Y)
+
+NOT(X) = NOR(0, X)
+AND(X, Y) = NOR(NOT(X), NOT(Y))
+OR(X, Y) = NOR(NOR(X,Y), NOR(X,Y))
+
+Exercise: Without listing explicitly, how many possible 8-bit binary numbers are there?
+
+2**8 = 256
+
+Exercise: Convert X = 110 to decimal.
+
+2**2 + 2**1 = 6
+
+Exercise: Convert 11 to binary.
+
+11/2 = 5 with 1 remainder
+5/2 = 2 with 1 remainder
+2/2 = 1 with 0 remainder
+1/2 = 0 with 1 remainder
+
+1 0 1 1
+
+Exercise: Convert these powers of 2 into binary: 2, 4, 8, 16, 32. What do you notice?
+
+2 -> 10
+4 -> 100
+8 -> 1000
+16 -> 10000
+32 -> 100000
+
+Exercise: Convert these numbers into binary: 1, 3, 7, 15, 31 (they are all 2^n - 1 for some n). What do you notice?
+
+1 -> 1
+3 -> 11
+7 -> 111
+15 -> 1111
+31 -> 11111
+
+Exercise: check that these numbers all have the same 3-bit representation: 3 = 11 = 17, 0 = 8 = 16, 2 = 10 = 18.
+
+3 =    011
+11 =  1011
+17 = 10001
+no
+
+0 =    000
+8 =   1000
+16 = 10000
+yes
+
+2 =    010
+10 =  1010
+18 = 10010
+yes
+
+Exercise: complete the table by converting 2 into single-bit binary:
+X0 | Y0 | Z0
+---|----|----
+0  | 0  | 0
+1  | 0  | 1
+0  | 1  | 1
+1  | 1  | 1
+
+Exercise: do the same for single-bit multiplication: write down the table of binary numbers for X0, Y0, and the binary representation of their product Z0, and find the logical operation which matches. We say this operation implements single-bit multiplication.
+
+X0 | Y0 | Z0
+---|----|----
+0  | 0  | 0
+1  | 0  | 0
+0  | 1  | 0
+1  | 1  | 1
+AND operation implements single-bit multiplication
+
+Exercise: Using A and B as the inputs, and OUT as the output, explain how this circuit acts as NAND(A,B); for each entry in the truth table, follow the explanation above. True is "high energy" and False is "low energy".
+
+    POWER
+      |
+    -----
+    | R |
+    -----
+      |---- OUT
+    -----
+A --| T |
+    -----
+      |
+    -----
+B --| T |
+    -----
+      |
+    GROUND
+
+1 - True
+0 - False
+
+A | B | GROUND |
+--|---|--------|
+0 | 0 |   0    |
+0 | 1 |   0    |
+1 | 0 |   0    |
+1 | 1 |   1    |
+
+
+Exercise: show that every IPv4 can be represented by four 8bit unsigned integers, and that every 8bit unsigned integer is between 0 and 255.
+
+11111111 => 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 = 127 + 128 = 255
+
+Exercise: how many IPv4 addresses are there? Is it enough? Explain.
+
+2**32 = 4294967296
+It was enough in the past, but not now: with the development of the Internet of things, this has become clearly insufficient.
+
+Exercise: use ping in a terminal to resolve a domain name. Copy-paste the command you used, and the result.
+
+ping google.com
+PING google.com (172.217.22.174) 56(84) bytes of data.
+64 bytes from arn09s11-in-f14.1e100.net (172.217.22.174): icmp_seq=1 ttl=56 time=19.6 ms
+64 bytes from arn09s11-in-f14.1e100.net (172.217.22.174): icmp_seq=2 ttl=56 time=19.1 ms
+64 bytes from arn09s11-in-f14.1e100.net (172.217.22.174): icmp_seq=3 ttl=56 time=19.2 ms
+64 bytes from arn09s11-in-f14.1e100.net (172.217.22.174): icmp_seq=4 ttl=56 time=19.2 ms
+64 bytes from arn09s11-in-f14.1e100.net (172.217.22.174): icmp_seq=5 ttl=56 time=19.1 ms
+64 bytes from arn09s11-in-f14.1e100.net (172.217.22.174): icmp_seq=6 ttl=56 time=19.5 ms
+64 bytes from arn09s11-in-f14.1e100.net (172.217.22.174): icmp_seq=7 ttl=56 time=19.2 ms
+64 bytes from arn09s11-in-f14.1e100.net (172.217.22.174): icmp_seq=8 ttl=56 time=20.1 ms
+^C
+--- google.com ping statistics ---
+8 packets transmitted, 8 received, 0% packet loss, time 7010ms
+rtt min/avg/max/mdev = 19.181/19.437/20.151/0.324 ms
