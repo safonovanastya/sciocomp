@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+
+import sys
+
+numbers = []
+
+for line in sys.stdin:
+    line = float(line)
+    numbers.append(line)
+
+def median(sample):
+     n = len(sample)
+     index = n // 2
+     # Sample with an odd number of observations
+     if n % 2:
+         return sorted(sample)[index]
+     # Sample with an even number of observations
+     return sum(sorted(sample)[index - 1:index + 1]) / 2
+
+print(median(numbers))
+

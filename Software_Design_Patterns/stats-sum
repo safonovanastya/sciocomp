@@ -1,0 +1,11 @@
+#!/usr/bin/python3
+
+import sys
+
+numbers = []
+
+for line in sys.stdin:
+    line = float(line)
+    numbers.append(line)
+print(sum(numbers))
+

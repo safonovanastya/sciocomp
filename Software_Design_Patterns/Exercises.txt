@@ -1,0 +1,83 @@
+Reading:
+Exercise 1:
+subproblem 1 - request data (three inputs)
+subproblem 2 - calculate the result depending on kind of operation (use the op variable twice)
+subproblem 3 - print the result
+
+Exercise 2:
+
+def multiply(x,y):
+    return x*y
+
+def add(x,y):
+    return x+y
+
+Now a user just can make an input in 'add(14,6)' form. There is no need in the several inputs and special outputs (print).
+
+Practical:
+
+Exercise 1:
+paste <(seq 1 5) <(seq 11 15) | awk '{$3 = $1 + $2; print $3}'
+
+Exercise 2:
+#!/usr/bin/python3
+
+import sys
+numbers = []
+for line in sys.stdin:
+    line = float(line)
+    numbers.append(line)
+print(sum(numbers))
+
+Exercise 3:
+#!/usr/bin/python3
+import sys
+import subprocess
+
+inp = sys.stdin.readlines()
+args = sys.argv[1:]
+
+for i, arg in enumerate(args):
+    path = './stats-' + arg
+    my_subprocess = subprocess.Popen(path, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+
+    for line in inp:
+        line = line[:-1]
+        line = line.split('\t')
+        number = float(line[i])
+        my_subprocess.stdin.write("{}\n".format(number).encode('utf-8'))
+
+
+    my_subprocess.stdin.close()
+    print(my_subprocess.stdout.read().decode('utf-8'), end='')
+
+Exercise 4:
+It is convenient when everything is collected in one place and one program calls another. It is faster and more useful for the user. The user need a manual for using such a program (because it is important to enter the necessary data in the correct order). Also such programs have several files, in one hand they are smaler and more readible then one big and long file with a code, but on the other hand you need to jump from one file to another working whith them.
+
+Exercise 5:
+It's fail. "BrokenPipeError: [Errno 32] Broken pipe". Empty cells do not treat as zero, but as emptiness. 
+
+#!/usr/bin/python3
+import sys
+import subprocess
+
+inp = sys.stdin.readlines()
+args = sys.argv[1:]
+print(args)
+
+for i, arg in enumerate(args):
+    path = './stats-' + arg
+    my_subprocess = subprocess.Popen(path, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+
+    for line in inp:
+        line = line[:-1]
+        line = line.split('\t')
+        if line[i]:
+            number = float(line[i])
+            my_subprocess.stdin.write("{}\n".format(number).encode('utf-8'))
+
+
+    my_subprocess.stdin.close()
+    print(my_subprocess.stdout.read().decode('utf-8'), end='')
+
+

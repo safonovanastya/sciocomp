@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+
+import math
+import sys
+
+numbers = []
+
+for line in sys.stdin:
+    line = float(line)
+    numbers.append(line)
+
+mean = sum(numbers) / len(numbers)
+var  = sum(pow(x-mean,2) for x in numbers) / len(numbers)
+std  = math.sqrt(var) 
+
+print(std)
+

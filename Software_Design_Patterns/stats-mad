@@ -1,0 +1,32 @@
+#!/usr/bin/python3
+
+import sys
+
+numbers = []
+
+for line in sys.stdin:
+    line = float(line)
+    numbers.append(line)
+
+def Mean(arr, n):
+ 
+    # Calculate sum of all
+    # elements.
+    sm = 0
+     
+    for i in range(0, n) :
+        sm = sm + arr[i]
+    return sm // n
+     
+# Function to find mean
+# absolute deviation of
+# given elements.
+absSum = 0
+for i in range(0, len(numbers)):
+    absSum = absSum + abs(numbers[i] -
+                     Mean(numbers, len(numbers)))
+meanAbsoluteDeviation = absSum / len(numbers)
+
+
+print(meanAbsoluteDeviation)
+

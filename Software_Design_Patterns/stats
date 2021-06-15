@@ -1,0 +1,22 @@
+#!/usr/bin/python3
+import sys
+import subprocess
+
+inp = sys.stdin.readlines()
+args = sys.argv[1:]
+print(args)
+
+for i, arg in enumerate(args):
+    path = './stats-' + arg
+    my_subprocess = subprocess.Popen(path, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+
+    for line in inp:
+        line = line[:-1]
+        line = line.split('\t')
+        if line[i]:
+            number = float(line[i])
+            my_subprocess.stdin.write("{}\n".format(number).encode('utf-8'))
+
+
+    my_subprocess.stdin.close()
+    print(my_subprocess.stdout.read().decode('utf-8'), end='')
