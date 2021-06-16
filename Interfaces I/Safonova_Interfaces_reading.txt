@@ -1,0 +1,104 @@
+Reading
+
+--------------------------------------------------------------------------------------------
+Exercise: Give two examples of asynchronous communication. Give two examples of synchronous communication.
+
+emails, sms, post in facebook - asynchronous
+phone calls, video calls - synchronous
+
+--------------------------------------------------------------------------------------------
+Exercise: Compare the output of ls vs ls -l and ls -a; describe how they are similar, and how they are different.
+
+the example of ls output:
+denoising.ipynb  fairseq-master.zip  sliced_data  text_data  valid.tsv
+examples         scripts             test.tsv     train.tsv
+
+the example of ls -l output:
+total 9568
+-rw-rw-r--  1 nastia nastia  609505 мар 11 20:53 denoising.ipynb
+drwx------ 47 nastia nastia    4096 июн 11 07:58 examples
+-rw-rw-r--  1 nastia nastia 3910632 июн 11 18:30 fairseq-master.zip
+drwxrwxr-x  3 nastia nastia   36864 июн 11 18:35 scripts
+drwxrwxr-x  4 nastia nastia    4096 фев 11 22:02 sliced_data
+-rw-rw-r--  1 nastia nastia   10725 июн 11 18:06 test.tsv
+-rw-rw-r--  1 nastia nastia 4166278 июн 11 18:01 text_data
+-rw-rw-r--  1 nastia nastia 1031063 июн 11 18:03 train.tsv
+-rw-rw-r--  1 nastia nastia    8655 июн 11 18:04 valid.tsv
+
+the example of ls -a output:
+.   denoising.ipynb  fairseq-master.zip  scripts      test.tsv   train.tsv
+..  examples         .ipynb_checkpoints  sliced_data  text_data  valid.tsv
+
+ls output only names of files in repository
+ls -l shows the information about files (permissions, who and when created, files names and sizes)
+ls -a shows all the files including hidden ones
+
+--------------------------------------------------------------------------------------------
+Exercise: Explain pushd and popd; what data structure represents your directory history? Give an example of using them to organise a folder with music.
+
+pushd and popd allow you to easily navigate between folders. The popd command adds directories to the stack (to 0 position), and popd removes the first directory from there. How to organise a folder with music:
+
+dirs -v
+    0  ~/music/hiphop/kanye
+    1  ~/music/pop/
+    2  ~/music/rock/soad
+    3  ~/music/rock
+
+--------------------------------------------------------------------------------------------
+Exercise: Draw a partial tree of your filesystem, starting from the children of your home directory. Include ancestors of your home directory, and siblings of those ancestors. Exclude files, just show directories.
+
+(root)/
+    |
+    | - bin/
+    | - boot/
+    | - c/
+    | - cdrom/
+    | - d/
+    | - dev/
+    | - etc/
+    | - home/
+    |     | - linuxbrew/
+    |     | - nastia/
+    |     |      | - asr/
+    |     |      | - basaa/
+    |     |      | - chukchi/
+    |     |      | - classification/
+    |     |      | - database/
+    |     |      | - Desktop/
+    |     |      | - Documents/
+    |     |      | - Downloads/
+    |     |      | - Pictures/
+    |     |      | - Python-3.9.0/
+    |
+    | - lib/
+    | - lib64/
+    | - media/
+    | - mnt/
+    | - opt/
+    | - proc/
+    | - rofs/
+    | - root/
+    | - run/
+    | - sbin/
+    | - srv/
+    | - sys/
+    | - tmp/
+    | - usr/
+    | - var/
+
+--------------------------------------------------------------------------------------------
+Exercise: Write a shell script that asks the user for their name, and greets them.
+
+#!/bin/bash
+echo "What's your name?"
+read name
+echo "Hello, $name"
+
+--------------------------------------------------------------------------------------------
+Exercise: Write a shell script that performs "ROT13" (Caesar cipher with shift 13.)
+
+#!/bin/bash
+letters=$((${1:-13} % 26))
+changing=$(printf "%${letters}s" "" | tr ' ' '\001')
+tr "${changing}a-z" "a-za-z" |
+tr "${changing}A-Z" "A-ZA-Z"
