@@ -1,0 +1,45 @@
+Reading
+
+----------------------------------------------------------------------------------
+Exercise: Send yourself an e-mail with non-ASCII characters. (E.g., "привет!") Download the raw message and open with a text editor. What are the contents? How is the message encoded, and where is the encoding specified? (Sometimes you need to select "view message source" or "view original message" to do this.)
+
+The content is '0J/RgNC40LLQtdGCIQ0K'. The text was encoded to base64. Under the message there is an indication of the type of the original encoding and the type of encoding into which the message was converted. For example: 
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: base64
+
+Exercise: How are attachments handled? Refer to the Wikipedia article on MIME; send yourself an e-mail with a (very small!) attachment, and download the raw e-mail message and open with a text editor. What are the contents? Show and explain each MIME part. Can you recover the attachment from the raw message?
+
+The MIME formatting indicator is at the very top of the message: MIME-Version: 1.0
+Also there is a discription of attachment:
+    Content-Type: application/octet-stream; name="привет"
+    Content-Disposition: attachment; filename="привет"
+
+----------------------------------------------------------------------------------
+Exercise: Both Python and the Linux kernel have considered in the past moving from bugzilla- and e-mail-based systems to forges. Read both articles, and summarise the advantages and disadvantages of forge-based systems and e-mail, and the results of each.
+
+Advantages of forge-based systems:
+1. It is useful for small projects because of it's simple interface;
+2. It offers free hosting and unlimited bandwidth. 
+
+Disadvantages of forge-based systems:
+1. It doesn't work well for large numbers of reviewers and doesn't scale to larger projects;
+2. In github only the people who are actually assigned to a pull request can see that thread.
+
+Advantages of e-mail:
+1. Email integrates easily with other systems;
+2. Email works well for non-native speakers, who can use automatic translation systems if need be;
+3. There is no need to learn a new interface to work with it.
+
+Disadvantages of e-mail:
+1. The quality of email clients is not uniformly good;
+2. Some systems will uniformly corrupt patches.
+
+----------------------------------------------------------------------------------
+Exercise: Suppose your project is not software. What kinds of quality control tests might you implement? Give examples for written articles, web sites, musical compositions, and graphics.
+
+written articles -- it could be spellchecking;
+
+web sites -- checking if there is a net connection;
+
+musical compositions and graphics -- checking the quality (it can be too low).
+
