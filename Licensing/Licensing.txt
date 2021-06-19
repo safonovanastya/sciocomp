@@ -1,0 +1,57 @@
+Reading
+
+-------------------------------------------------------------------------------------------
+Exercise: read the Wikipedia articles on Apache, BSD, and MIT licenses. Describe the similarities and the differences.
+
+All of them are permissive free software licenses and permit commercial and personal use, distribution and modification.
+Apache has several versions. Each license file must retain the original copyright, patent, trademark and attribution notices. A notice must be added to each modified license file stating that the file has been modified. It separately stipulates that the same names cannot be used for derivative works if they are trademarks, which guarantees the user a patent right (unlike MIT).
+BSD and MIT are a little bit alike, but BSD is both a license and a class of license, (unlike MIT). The modified BSD license is widely used today and is quite similar to the license originally used for the BSD version of Unix. It doesn't require distribution of source code at all.
+
+-------------------------------------------------------------------------------------------
+Exercise: Pick a creative work (or make up a fictional one); come up with three obviously non-commercial uses of this work.
+
+Some kind of  monumental culture (e.g., Maman by Louise Bourgeois). Non-commercial uses:
+1. Install in a free city park (like the Garage Museum in Moscow in 2015)
+2. Make a digital copy for showing in schools
+3. Donate to a museum
+
+Exercise: Now argue that all three of these uses are commercial.
+
+1. Park popularity rises, ice cream sales and park entertainment grows (or the museum, which installed the sculpture, thus attracts visitors to its exhibitions)
+2. The student prints a circular copy and sells
+3. The donator's authority and prestige grows, more people and other collectors learn about her or him, and more people buy more of his collection items.
+
+-------------------------------------------------------------------------------------------
+Exercise: What is the effect on science reproducibility if the data set is not liberally licensed?
+
+One of the main criteria of scientificity is the ability to freely reproduce the experiment by other people. If data set is not liberally licensed, other researches will not able to reproduce or verify the authenticity of the study. If the data is closed and requires separate access, then the creators of that database can control and tamper with the data, if necessary.
+
+Exercise: give an example of a proprietary data source; what could you do with that data if it were liberally licensed?
+
+For example, Netflix or other streaming platforms. Opening the data from them would open up the field for analytical research: which shows or movies are popular with which categories of citizens, what makes them popular, how much time people spend watching shows or movies, etc.
+
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+
+Practical
+
+Write a data policy for your НИС. This should include:
+
+1. a description of what data you will use
+We use audio recordings of the Chukchi language.
+
+2. where that data comes from, and what license it is under
+There are several sources:
+    1. Chuklang corpora (https://chuklang.ru/): Liberally licensed
+    2. Youtube: Creative Commons CC BY
+    3. Bible.is: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+
+3. (roughly) what you will do with the data
+We cut the data and use it to train the ASR model
+
+4. whether you can/will release the data, and under what license
+We will make the data publicly available on our Github, we should probably use the same license as the resources from which we obtained the data, i.e. Creative Commons Attribution-ShareAlike.
+
+5. how another research group will be able to reproduce your project
+Our dataset will publicly available on our Github as well as our paper and code, so everyone can use it.
+
